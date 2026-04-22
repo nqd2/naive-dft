@@ -62,9 +62,6 @@ Example:
 ## Input vs Frequency Graph Comparison
 
 
-| Format | Input image | Frequency graph |
-| ------ | ----------- | --------------- |
-| PNG    | PNG input   | PNG frequency   |
-| JPG    | JPG input   | JPG frequency   |
-
-
+|---|---|---|
+| PNG | ![PNG input](images/input/image.png) | ![PNG frequency](images/output/png_freq_graph.png) | 
+| JPG | ![JPG input](images/input/image.jpg) | ![JPG frequency](images/output/jpg_freq_graph.png) | 
