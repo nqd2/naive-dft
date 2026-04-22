@@ -12,36 +12,36 @@ Converts input images to the frequency graph.
 
 ## Mathematical Background
 
-For a discrete grayscale image \(f(x,y)\) of size \(M \times N\), the 2D discrete Fourier transform is:
+For a discrete grayscale image $f(x,y)$ of size $M \times N$, the 2D discrete Fourier transform is:
 
-\[
+$$
 F(u,v) = \sum_{x=0}^{M-1} \sum_{y=0}^{N-1}
 f(x,y)\,e^{-j 2\pi \left(\frac{ux}{M} + \frac{vy}{N}\right)}
-\]
+$$
 
 Real and imaginary parts:
 
-\[
+$$
 \Re\{F(u,v)\} = \sum_{x=0}^{M-1}\sum_{y=0}^{N-1}
 f(x,y)\cos\left(2\pi\left(\frac{ux}{M}+\frac{vy}{N}\right)\right)
-\]
+$$
 
-\[
+$$
 \Im\{F(u,v)\} = -\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}
 f(x,y)\sin\left(2\pi\left(\frac{ux}{M}+\frac{vy}{N}\right)\right)
-\]
+$$
 
 Spectrum magnitude:
 
-\[
+$$
 |F(u,v)| = \sqrt{\Re\{F(u,v)\}^2 + \Im\{F(u,v)\}^2}
-\]
+$$
 
 For visualization, the code applies log compression:
 
-\[
+$$
 S(u,v) = \log\left(1 + |F(u,v)|\right)
-\]
+$$
 
 and normalizes to \([0, 255]\) before writing the output image.
 
@@ -61,7 +61,7 @@ Example:
 
 ## Input vs Frequency Graph Comparison
 
-| Format | Input image | Frequency graph | Notes |
-|---|---|---|---|
-| PNG | ![PNG input](images/input/image.png) | ![PNG frequency](images/output/png_freq_graph.png) | The spectrum preserves more high-frequency structure and sharper edge energy. |
-| JPG | ![JPG input](images/input/image.jpg) | ![JPG frequency](images/output/jpg_freq_graph.png) | The image has been "lobotomized": compression removes information, smooths the spectrum, weakens high-frequency detail, and reduces fine edge energy. |
+| Format | Input image | Frequency graph |
+|---|---|---|
+| PNG | ![PNG input](images/input/image.png) | ![PNG frequency](images/output/png_freq_graph.png) | 
+| JPG | ![JPG input](images/input/image.jpg) | ![JPG frequency](images/output/jpg_freq_graph.png) | 
