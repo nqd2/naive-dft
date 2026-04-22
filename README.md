@@ -6,7 +6,7 @@ Converts input images to the frequency graph.
 
 1. Read the input image from `images/input/`.
 2. Convert it to grayscale and save the intermediate file in `images/intermediate/`.
-3. Run `dft2d_kernel` to compute the complex spectrum \(F(u,v)\).
+3. Run `dft2d_kernel` to compute the complex spectrum F(u,v).
 4. Compute magnitude, apply log scaling, and shift the spectrum center (DC to the middle).
 5. Write the frequency graph to `images/output/` (PNG or PGM).
 
@@ -14,36 +14,36 @@ Converts input images to the frequency graph.
 
 For a discrete grayscale image $f(x,y)$ of size $M \times N$, the 2D discrete Fourier transform is:
 
-$$
+```math
 F(u,v) = \sum_{x=0}^{M-1} \sum_{y=0}^{N-1}
 f(x,y)\,e^{-j 2\pi \left(\frac{ux}{M} + \frac{vy}{N}\right)}
-$$
+```
 
 Real and imaginary parts:
 
-$$
+```math
 \Re\{F(u,v)\} = \sum_{x=0}^{M-1}\sum_{y=0}^{N-1}
 f(x,y)\cos\left(2\pi\left(\frac{ux}{M}+\frac{vy}{N}\right)\right)
-$$
+```
 
-$$
+```math
 \Im\{F(u,v)\} = -\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}
 f(x,y)\sin\left(2\pi\left(\frac{ux}{M}+\frac{vy}{N}\right)\right)
-$$
+```
 
 Spectrum magnitude:
 
-$$
+```math
 |F(u,v)| = \sqrt{\Re\{F(u,v)\}^2 + \Im\{F(u,v)\}^2}
-$$
+```
 
 For visualization, the code applies log compression:
 
-$$
+```math
 S(u,v) = \log\left(1 + |F(u,v)|\right)
-$$
+```
 
-and normalizes to \([0, 255]\) before writing the output image.
+and normalizes to [0, 255] before writing the output image.
 
 ## Build and Run
 
@@ -61,7 +61,10 @@ Example:
 
 ## Input vs Frequency Graph Comparison
 
+
 | Format | Input image | Frequency graph |
-|---|---|---|
-| PNG | ![PNG input](images/input/image.png) | ![PNG frequency](images/output/png_freq_graph.png) | 
-| JPG | ![JPG input](images/input/image.jpg) | ![JPG frequency](images/output/jpg_freq_graph.png) | 
+| ------ | ----------- | --------------- |
+| PNG    | PNG input   | PNG frequency   |
+| JPG    | JPG input   | JPG frequency   |
+
+
